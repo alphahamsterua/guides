@@ -17,8 +17,8 @@ echo "Downloading docker-compose.yaml..."
 curl https://www.espressosys.com/cape/docker-compose.yaml --output docker-compose.yaml
 echo "The file was downloaded..."
 
-docker-compose pull
-docker-compose up -d
+docker compose pull
+docker compose up -d
 echo "Docker started..."
 
 echo "Script finished."
