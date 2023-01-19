@@ -16,6 +16,9 @@ systemctl start docker
 echo "Docker started..."
 
 echo "Downloading ursa repo..."
+apt update && \
+    apt install unzip
+
 wget https://github.com/fleek-network/ursa/archive/refs/heads/main.zip && \
     unzip main.zip && \
     rm -rf main.zip && \
