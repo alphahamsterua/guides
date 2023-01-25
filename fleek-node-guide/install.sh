@@ -17,6 +17,21 @@ cd $HOME && \
     make install
 echo "Ursa was built..."
 
+tee <<EOF /etc/systemd/system/fleek.service
+[Unit]
+Description=My-Fleek-node
+After=network.target
+[Service]
+User=$USER
+ExecStart=/root/.cargo/bin/ursa
+WorkingDirectory=$HOME/ursa
+Restart=on-failure
+RestartSec=3
+LimitNOFILE=4096
+[Install]
+WantedBy=multi-user.target
+EOF
+
 echo "sleep 10 sec..."
 sleep 10
 
